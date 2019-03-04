@@ -1,0 +1,10 @@
+<h1>{{ pet.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'pets:update' pet.id %}" method="post">
+{% csrf_token %}
+    <label for="name">Name</label><br>
+    <input type="text" name="name" id="name" value="{{ pet.name }}">
+    <input type="submit" value="Submit">
+</form>
